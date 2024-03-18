@@ -3,8 +3,11 @@ import Nav from "./Nav";
 import Selected from "./tabels/Selected";
 import Types from "./tabels/Types";
 import Search from "./tabels/Search";
+import { useSelector } from "react-redux";
 
 const Main = () => {
+  const { data } = useSelector((state) => state.data);
+
   const [search, setSearch] = useState("");
   const [searchItems, setSearchItems] = useState([]);
   const [checkedData, setCheckedData] = useState();
@@ -79,69 +82,3 @@ const Main = () => {
 };
 
 export default Main;
-
-const data = [
-  {
-    id: 1,
-    address: "Mambulo",
-    postcode: "63",
-    type: "Brass",
-    rooms: 1,
-    area: 61,
-    value: false,
-  },
-  {
-    id: 2,
-    address: "Balbagay",
-    postcode: "1",
-    type: "Plexiglass",
-    rooms: 2,
-    area: 37,
-    value: false,
-  },
-  {
-    id: 3,
-    address: "Karobokan",
-    postcode: "981",
-    type: "Rubber",
-    rooms: 3,
-    area: 41,
-    value: false,
-  },
-  {
-    id: 4,
-    address: "Conchopata",
-    postcode: "2238",
-    type: "Wood",
-    rooms: 4,
-    area: 34,
-    value: false,
-  },
-  {
-    id: 5,
-    address: "Coca",
-    postcode: "2238",
-    type: "Wood",
-    rooms: 4,
-    area: 34,
-    value: false,
-  },
-  {
-    id: 6,
-    address: "Conco",
-    postcode: "2238",
-    type: "Wood",
-    rooms: 4,
-    area: 34,
-    value: false,
-  },
-  {
-    id: 7,
-    address: "Yiyang",
-    postcode: "0",
-    type: "Glass",
-    rooms: 5,
-    area: 70,
-    value: false,
-  },
-];

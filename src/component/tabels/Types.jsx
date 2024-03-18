@@ -9,6 +9,10 @@ import {
 import React from "react";
 
 const Types = ({ data }) => {
+  const types = data.map((item) => item.type);
+  const type = new Set(types);
+  // console.log(type);
+
   return (
     <TableContainer>
       <Table sx={{ backgroundColor: "rgba(0, 0, 0, 0.1)" }}>
@@ -28,15 +32,15 @@ const Types = ({ data }) => {
         </TableHead>
 
         <TableBody>
-          {data.map((data) => (
-            <TableRow key={data.id}>
+          {Array.from(type)?.map((data, index) => (
+            <TableRow key={index}>
               <TableCell
                 sx={{
                   padding: ".7rem",
                   fontSize: "16px",
                 }}
               >
-                {data.type}
+                {data}
               </TableCell>
             </TableRow>
           ))}

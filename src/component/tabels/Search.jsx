@@ -10,9 +10,15 @@ import {
 } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
 import React from "react";
+import { useDispatch } from "react-redux";
+import { checkedData } from "../../Redux/dataSlice.js/dataSlice";
 
 const Search = ({ data, onDataChange }) => {
+  const dispatch = useDispatch();
+
   const handleCheckboxChange = (id) => {
+    dispatch(checkedData(id));
+
     const newData = data.map((item) =>
       item.id === id ? { ...item, value: !item.value } : item
     );
